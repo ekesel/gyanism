@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+  {% block body %}
+  {% load static %}
+  <div class="hero-wrap js-fullheight" style="background-image: url('static/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+        <div class="col-md-12 ftco-animate">
+          <h2 class="subheading">Hello! Welcome to</h2>
+          <h1 class="mb-4 mb-md-0">Gyanism</h1> <br>
+          <div class="row">
+            <div class="col-md-7">
+              <div class="text">
+                <p>From Myth Debunking To Adjusting Your Vision To The Real Society. We'll Let You Know Everything. We'll Be Covering Every Aspect Of Society. Untill You Don't Know Your Enemy You Can't Fight For Victory. Likewise Until You Don't Know Your Surrounding You Can't Tackle With It.</p>
+                <div class="mouse">
+                  <a href="#" class="mouse-icon">
+                    <div class="mouse-wheel"><span class="ion-ios-arrow-round-down"></span></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+       {% for post in posts|slice:":5" %}
+          <div class="case">
+            <div class="row">
+              <div class="col-md-6 col-lg-6 col-xl-8 d-flex">
+                <a href="{% url 'post' post.id post.slug %}" class="img w-100 mb-3 mb-md-0" style="background-image: url('{{post.thumbnail.url}}');"></a>
+              </div>
+              <div class="col-md-6 col-lg-6 col-xl-4 d-flex">
+                <div class="text w-100 pl-md-3">
+                  <h2><a href="{% url 'post' post.id post.slug %}"></a>{{ post.title }}</h2>
+                  <span class="subheading">{{post.overview}}</span>
+               {% for cat in post.categories.all %}
+                   <a href="#">{{cat.title}}</a>, 
+                 {% endfor %}
+                  <ul class="media-social list-unstyled">
+                   <li class="ftco-animate"><a href="https://twitter.com/eke_sel"><span class="icon-twitter"></span></a></li>
+                   <li class="ftco-animate"><a href="https://www.facebook.com/ekaanshsahni"><span class="icon-facebook"></span></a></li>
+                   <li class="ftco-animate"><a href="https://www.instagram.com/gyanism.in/"><span class="icon-instagram"></span></a></li>
+                 </ul>
+           
+                  <div class="meta">
+                    <!-- jinja can be used here-->
+                    <p class="mb-0"><a href="#">{{post.time_upload}}</a> | <a href="#">{{post.read}} reads</a></p> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <h2><b>Editor Picks</b></h2>
+          <br>
+            {% for author_posts in author_post %}
+            <div class="case">
+              <div class="row">
+                <div class="col-md-6 col-lg-6 col-xl-8 d-flex">
+                  <a href="#" class="img w-100 mb-3 mb-md-0" style="background-image: url('{{author_posts.thumbnail.url}}');"></a>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 d-flex">
+                  <div class="text w-100 pl-md-3">
+                    <h2><a href="#"></a>{{author_posts.title}}</h2>
+                    <span class="subheading">{{author_posts.overview}}</span>
+                    {% for cats in author_posts.categories.all %}
+                    <a href="#">{{cats.title}}</a>, 
+                  {% endfor %}
+                    <ul class="media-social list-unstyled">
+                     <li class="ftco-animate"><a href="https://twitter.com/eke_sel"><span class="icon-twitter"></span></a></li>
+                   <li class="ftco-animate"><a href="https://www.facebook.com/ekaanshsahni"><span class="icon-facebook"></span></a></li>
+                   <li class="ftco-animate"><a href="https://www.instagram.com/gyanism.in/"><span class="icon-instagram"></span></a></li>
+                   </ul>
+             
+                    <div class="meta">
+                      <!-- jinja can be used here-->
+                      <p class="mb-0"><a href="#">{{author_posts.time_upload|timesince}} ago</a> | <b>Author :</b> {{author_posts.auther.user.username}} </p> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+                {%endfor%}
+          <h2><b>Trending</b></h2>
+          <br>
+          {% for trend in trends %}
+            <div class="case">
+              <div class="row">
+                <div class="col-md-6 col-lg-6 col-xl-8 d-flex">
+                  <a href="#" class="img w-100 mb-3 mb-md-0" style="background-image: url('{{trend.thumbnail.url}}');"></a>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 d-flex">
+                  <div class="text w-100 pl-md-3">
+                    <h2><a href="#"></a>{{trend.title}}</h2>
+                    <span class="subheading">{{trend.overview}}</span>
+                    {% for cat in trend.categories.all %}
+                      <a href="#">{{cat.title}}</a>, 
+                    {% endfor %}
+
+                    <ul class="media-social list-unstyled">
+                     <li class="ftco-animate"><a href="https://twitter.com/eke_sel"><span class="icon-twitter"></span></a></li>
+                   <li class="ftco-animate"><a href="https://www.facebook.com/ekaanshsahni"><span class="icon-facebook"></span></a></li>
+                   <li class="ftco-animate"><a href="https://www.instagram.com/gyanism.in/"><span class="icon-instagram"></span></a></li>
+                   </ul>
+             
+                    <div class="meta">
+                      <!-- jinja can be used here-->
+                      <p class="mb-0"><a href="#">{{trend.time_upload|timesince}} ago</a> | {{trend.read}} reads  </p> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%endfor%}
+        </div>
+      </div>
+
+      <nav aria-label="...">
+        <ul class="pagination">
+          {% if posts.has_previous %}
+          <li class="page-item active">
+            <a class="page-link" href="?page={{posts.previous_page_number}}" tabindex="-1">Previous</a>
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          {% endif %}
+          <li class="page-item"><a class="page-link" href="#">{{posts.number}}</a></li>
+          {% if posts.has_next %}
+          <li class="page-item active">
+            <a class="page-link" href="?page={{posts.next_page_number}}">Next</a>
+          </li>
+          {%else%}
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Next</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </section>
+    <!-- END section -->
+    <div class="site-section subscribe bg-light">
+      <div class="container">
+        <form action="#" class="row align-items-center">
+          <div class="col-md-5 mr-auto">
+            <h2>Newsletter Subscribe</h2>
+            <p>Subscribe to Gyanism to get all the updates regarding new posts directly on your mail!</p>
+          </div>
+          <div class="col-md-6 ml-auto">
+            <div class="d-flex">
+              <form>
+                <input type="email" class="form-control" placeholder="Enter your email" name='email' required>
+                <button type="submit" class="btn btn-secondary" ><span class="icon-paper-plane"></span></button>
+              </form>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+{% endblock body %}

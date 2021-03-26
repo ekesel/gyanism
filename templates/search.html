@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+  {% block body %}
+  {% load static %}
+  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/static/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+        <div class="col-md-9 ftco-animate pb-5 text-center">
+          <h1 class="mb-3 bread">Search</h1>
+          <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Search <i class="ion-ios-arrow-forward"></i></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            {% for post in posts %} 
+          <div class="case">
+            <div class="row">
+              <div class="col-md-6 col-lg-6 col-xl-8 d-flex">
+                <a href="{% url 'post' post.id post.slug %}" class="img w-100 mb-3 mb-md-0" style="background-image: url('{{post.thumbnail.url}}');"></a>
+              </div>
+              <div class="col-md-6 col-lg-6 col-xl-4 d-flex">
+                <div class="text w-100 pl-md-3">
+                  <h2><a href="{% url 'post' post.id post.slug %}"></a>{{title}}</h2>
+                  <span class="subheading">{{post.overview}}</span>
+               {% for cat in post.categories.all %}
+                   <a href="#">{{cat.title}}</a>, 
+                 {% endfor %}
+                  <ul class="media-social list-unstyled">
+                   <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                   <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                   <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                 </ul>
+           
+                  <div class="meta">
+                    <!-- jinja can be used here-->
+                    <p class="mb-0"><a href="#">{{post.time_upload}}</a> | <a href="#">{{post.read}} reads</a></p> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {%endfor%}
+          </div>
+        </div>
+    </div>
+</section>
+{% endblock body %}
