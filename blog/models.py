@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.text import slugify
+from django.urls import reverse
 
 # pip install pillow
 
@@ -34,6 +35,7 @@ class Post(models.Model):
 	publish = models.BooleanField()
 	categories = models.ManyToManyField(Categorie)
 	read = models.IntegerField(default = 0)
+	keywords = models.CharField(max_length=200,blank=True,null=True)
 
 	class Meta:
 		ordering = ['-pk']
@@ -44,6 +46,9 @@ class Post(models.Model):
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.title)
 		super(Post, self).save(*args, **kwargs)
+	
+	#def get_absolute_url(self):
+		#return reverse('blog:post',args=[self.id,self.slug,])
 
 
 class Contact(models.Model):

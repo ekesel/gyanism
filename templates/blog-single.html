@@ -3,17 +3,13 @@
   {% load static %}
 <head>
   <title>
-  {% if title %}
-    {{title}}
-  {% else %}
-    Gyanism - In Pursuit Of Sharing Gyan!
-  {% endif %}
+  {{post.title}}
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="The Blogging community for Indian Society!">
-    <meta name="author" content="Ekaansh Sahni">
-    <meta name="keywords" content="gyan, indianbloggers, indianblog, gyanism, indiangyan, indian, society, culture, gyani, culture, myth, debunk, reality">
+    <meta name="description" content="{{post.overview}}">
+    <meta name="author" content="{{post_author}}">
+    <meta name="keywords" content="{{post.keywords}}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">

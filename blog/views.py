@@ -75,9 +75,9 @@ def post(request, id, slug):
 	if str(post_author) == 'Nisha':
 	    post_para = 'Hello! I’m NS , a Bihari who fluently speaks Bhojpuri apart from this , a front end Developer and a blogger.'
 	    author_image = '/static/images/person_2.jpg'
-	elif str(post_author) == 'Ekesel':
-	    post_para = "I am Ekaansh Sahni, You can google me as ekesel. I don't write blogs, I created this! xD"
-	    author_image = '/static/images/person_1.jpg'
+	elif str(post_author) == 'moulijhunjhunwala12':
+	    post_para = "Hey there !! I’m Mouli Jhunjhunwala. I’m an enthusiast in content writing and a engineering student exploring various fields. On plus I'm Chief Financial Officer and a Host in Yuvaa organisation, LPU."
+	    author_image = '/static/images/XgXBP.jpeg'
 	elif str(post_author) == 'Shruti':
 	    post_para = 'I am Shruti Singh. Currently I am pursuing b.tech CSE. I like writing blogs on social issues in hope that it might bring some changes :P'
 	    author_image = '/static/images/person_4.jpg'
@@ -91,11 +91,11 @@ def post(request, id, slug):
 	    post_para = 'Hey I’m Malya Pandey. Being an avid reader and writer, I have always used literature to express myself. I seek therapy in art. Being a patriot and responsible citizen, I love to pen down my views on the latest issues of our country. Besides a writer, I am a dancer and an engineer in the making who loves to travel and wishes to see the entire world someday.'
 	    author_image = '/static/images/person_3.jpg'
 	elif str(post_author) == 'Aradhana':
-	    post_para = 'Sorry, I like to stay anonymous. Read the blog and enjoy'
+	    post_para = 'Sorry, I like to stay anonymous, Read the blog and enjoy!'
 	    author_image = '/static/images/profile.png'
 	else:
-	    post_para = 'Sorry, I like to stay anonymous. Read the blog and enjoy'
-	    author_image = '/static/images/profile.png'
+	    post_para = 'You probably know me by now, Head over to the Founders tab in the site :) '
+	    author_image = '/static/images/person_1.jpg'
 
 	parms = {
 		'comments':comments,

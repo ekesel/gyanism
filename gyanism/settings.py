@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'django.contrib.sites',
-
+    'django.contrib.sitemaps',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -181,8 +181,8 @@ LOGIN_REDIRECT_URL = "/profile"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'mail.gyanism.in' #I used gmail in my case
-EMAIL_HOST_USER = 'info@gyanism.in'
-EMAIL_HOST_PASSWORD = 'Kt6uqn0kss20#'
+EMAIL_HOST = 'smtp.gmail.com' #I used gmail in my case
+EMAIL_HOST_USER = 'newsgyanism@gmail.com'
+EMAIL_HOST_PASSWORD = 'kt6uqn0kss'
 EMAIL_PORT = 587
-DEFAULT_FROM_EMAIL = 'ekaansh <info@gyanism.in>'
+DEFAULT_FROM_EMAIL = 'Gyan <newsgyanism@gmail.com>'
